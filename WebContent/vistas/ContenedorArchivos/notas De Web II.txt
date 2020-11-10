@@ -1,0 +1,86 @@
+subir archivos multimedias.
+
+//----------------------- parte uno ---------------------//
+
+@Override
+    
+protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+// TODO Auto-generated method stub
+
+    
+}
+
+    
+
+@Override
+    
+protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
+// TODO Auto-generated method stub
+
+    
+}
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+// TODO Auto-generated method stub
+        
+PrintWriter out = response.getWriter();
+        
+response.setContentType("application/json");
+        
+out.println(VideoController.setVideo(
+ request.getPart("video"),
+));
+
+}
+
+//-------------------Crea un directorio ---------------//
+Clase File
+
+File newFolderVideo = new File("...")
+newFolderVideo.mkdirs()
+
+if(newFolderVideo.mkdirs()) {
+System.out.println("Las carpetas del usuario " + session.getAttribute("user") + " han sido creadas");}
+//---------------------------------------------------//
+
+fileOut = new FileOutputStream(new File(..));
+in = video.getInputStream();
+upload(in);
+private static void upload(InputStream in) {
+        int read = 0;
+        final byte[] bytes = new byte[1024];
+        try{
+            while ((read = in.read(bytes)) != -1) {
+                fileOut.write(bytes, 0, read);
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+
+
+
+
+
+//------------------------------- Parte 3 ----------------------------//
+
+Access-Control-Allow-Origin
+
+
+response.setHeader()
+response.setHeader('Access-Control-Allow-Origin', *)
+
+Buscar: CORS-preflight Request
+
+4 Cabeceras.
+Access-Control-Allow-Origin: *
+ 
+Access-Control-Allow-Headers: Content-Type, Authorization, Accept
+ 
+Access-Control-Allow-Methods: POST, GET, OPTION, HEAD
+ 
+Access-Control-Max-Age: 86400

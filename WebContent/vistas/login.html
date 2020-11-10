@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="styles/style.css">
+	
+    <title>Login</title>
+</head>
+    <body>
+          <br></br>
+          <form id="login-form">
+              <h3>Iniciar Sesion</h3>
+              <label class="form-label" for="email">Email:</label>                 
+              <input class="form-input" type="email" placeholder="Example@gmail.com" name="email">
+              
+              <label class="form-label" for="pass">Password:</label>
+              <input class="form-input" type="password" placeholder="password" name="pass">
+              
+              <button class="button" id="login-button" type="submit">Iniciar Sesion</button>
+          </form>  
+          <div class="mt-3" id="respuesta">    
+    </body>
+    
+    <script>
+		var formulario = document.getElementById("login-form");
+		var MyButton = document.getElementById("login-button");
+	    var respuesta = document.getElementById('respuesta');
+	    formulario.addEventListener('submit', function(e){	    	
+				e.preventDefault();
+				var xdatos = new FormData(formulario);
+				console.log(xdatos.get('email')+"-||-"+xdatos.get('pass')); 
+				console.log(xdatos); 						
+
+				if ((xdatos.get("email") == "") || (xdatos.get("pass") == "")){
+					alert("Campos vacios Llenar el registro como es debido...");
+					return;
+				}	
+				var init = {
+					method: "POST",
+					body: xdatos 
+				};					 
+						 
+				fetch('http://localhost:8090/WebProyect/Login', init)
+				.then( res => res.json())
+				.then( data => {
+					if(data.status == 200){	
+						setTimeout(()=>{openSesion(data.email)},100)
+						alert(data.message);
+					}else{
+						alert(data.message);
+					}
+				})
+				.catch(error => console.error('AAAAA  Error:', error));
+		 });  
+	    
+	    function openSesion(email){
+	  	  window.open("http://localhost:8090/WebProyect/vistas/session.html?email=" + email, "_self");
+	  		
+	  	}
+</script>
+</html>
+
