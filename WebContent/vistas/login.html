@@ -41,7 +41,7 @@
 					body: xdatos 
 				};					 
 						 
-				fetch('http://localhost:8090/WebProyect/Login', init)
+				fetch('https://guarded-hollows-88197.herokuapp.com/WebProyect/Login', init)
 				.then( res => res.json())
 				.then( data => {
 					if(data.status == 200){	
@@ -55,7 +55,7 @@
 		 });  
 	    
 	    function openSesion(email){
-	  	  window.open("http://localhost:8090/WebProyect/vistas/session.html?email=" + email, "_self");
+	  	  window.open("https://guarded-hollows-88197.herokuapp.com/WebProyect/vistas/session.html?email=" + email, "_self");
 	  		
 	  	}
 </script>
