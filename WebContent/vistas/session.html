@@ -75,7 +75,7 @@
 					body: datos 
 				};
 		
-			  fetch('https://murmuring-wildwood-16373.herokuapp.com/WebProyect/Archivos', init)
+			  fetch('https://murmuring-wildwood-16373.herokuapp.com/Archivos', init)
 			  .then(response => response.json())
 			  .then(data => {
 				  if(data.status == 200){
@@ -109,7 +109,7 @@
 					body: formData
 				 }
 
-				 fetch('https://murmuring-wildwood-16373.herokuapp.com/WebProyect/ObtencionArchivos', init)
+				 fetch('https://murmuring-wildwood-16373.herokuapp.com/ObtencionArchivos', init)
 					 .then(response => response.json())
 					 .then(data => {
 						 if(data.status == 200){
@@ -275,7 +275,7 @@
 			body: formData
 		 }
 
-		 fetch('https://murmuring-wildwood-16373.herokuapp.com/WebProyect/BorradorArchivos', init)
+		 fetch('https://murmuring-wildwood-16373.herokuapp.com/BorradorArchivos', init)
 			 .then(response => response.json())
 			 .then(data => {
 				 if(data.status == 200){
@@ -290,7 +290,7 @@
 	
 	 function openPerfil(){
 		 var email = document.getElementById("email").value;
-	  	  window.open("https://murmuring-wildwood-16373.herokuapp.com/WebProyect/vistas/perfil.html?email=" + email, "_self");  		
+	  	  window.open("https://murmuring-wildwood-16373.herokuapp.com/vistas/perfil.html?email=" + email, "_self");  		
 	 }
 	 
 	
@@ -303,7 +303,7 @@
 			body: formData
 		 }
 
-		 fetch('https://murmuring-wildwood-16373.herokuapp.com/WebProyect/SessionUser', init)
+		 fetch('https://murmuring-wildwood-16373.herokuapp.com/SessionUser', init)
 			 .then(response => response.json())
 			 .then(data => {
 				 if(data.status == 200){
