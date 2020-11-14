@@ -38,11 +38,13 @@ public class RegisterController {
 		   String xpass = hashPassword.toString();
 	
 	        String[] obj = {nombre, mail, xpass};     
-	        DB.dbPrepareStatement(prop.getValue("q1"), obj);
+	        //DB.dbPrepareStatement(prop.getValue("q1"), obj);
 	        
 	        conexion = DriverManager.getConnection(url,usuario,password);
-			query = conexion.prepareStatement("SELECT * FROM registro WHERE email = ?");
-			query.setString(1, mail);		   
+			query = conexion.prepareStatement("INSERT INTO registro (name,email,password) values (?,?,?)");
+			query.setString(1, mail);		
+			query.setString(2, mail);
+			query.setString(3, xpass);
 			ResultSet rs = query.executeQuery();
 			       
 			//while(rs.next()) {
