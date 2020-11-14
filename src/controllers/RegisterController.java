@@ -46,7 +46,7 @@ public class RegisterController {
 			query.setString(1, mail);		
 			query.setString(2, mail);
 			query.setString(3, xpass);
-			ResultSet rs = query.executeQuery();
+			query.executeUpdate();
 			
 			JSONObject json = new JSONObject();
 	        json.put("message", "Registrado Existosamente");

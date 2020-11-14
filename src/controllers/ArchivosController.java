@@ -41,9 +41,9 @@ public class ArchivosController {
 	    
 	    try {
 	    	//Datos para la conexion
-			String url = "jdbc:postgresql://localhost:5432/inventario";
-			String password = "29758990";
-			String usuario = "postgres";
+			String url = "jdbc:postgresql://ec2-3-233-236-188.compute-1.amazonaws.com:5432/dd7lesmb62pvp";
+			String password = "cdd763f52d0dfdf4d60f4d361854cc7c9df0b773a6fb45a9d6adb71e033dbe69";
+			String usuario = "tpeghjiavrlgmh";
 			
 	    	Connection conexion = null;
 	    	PreparedStatement query = null;
@@ -79,9 +79,9 @@ public class ArchivosController {
 	
 	public static String obtenerDatos(String email)throws ServletException {
 		//Datos para la conexion
-		String url = "jdbc:postgresql://localhost:5432/inventario";
-		String password = "29758990";
-		String usuario = "postgres";
+		String url = "jdbc:postgresql://ec2-3-233-236-188.compute-1.amazonaws.com:5432/dd7lesmb62pvp";
+		String password = "cdd763f52d0dfdf4d60f4d361854cc7c9df0b773a6fb45a9d6adb71e033dbe69";
+		String usuario = "tpeghjiavrlgmh";
 		
 		JSONObject json = new JSONObject();
     	Connection conexion = null;
@@ -117,9 +117,9 @@ public class ArchivosController {
 	
 	public static String borrarArchivos(String email, String filename)throws ServletException {
 		//Datos para la conexion
-				String url = "jdbc:postgresql://localhost:5432/inventario";
-				String password = "29758990";
-				String usuario = "postgres";
+				String url = "jdbc:postgresql://ec2-3-233-236-188.compute-1.amazonaws.com:5432/dd7lesmb62pvp";
+				String password = "cdd763f52d0dfdf4d60f4d361854cc7c9df0b773a6fb45a9d6adb71e033dbe69";
+				String usuario = "tpeghjiavrlgmh";
 				
 				JSONObject json = new JSONObject();
 		    	Connection conexion = null;
