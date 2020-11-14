@@ -23,9 +23,9 @@ public class LoginVerificacion {
 		 PreparedStatement query = null;
 			  
 		//Datos para la conexion
-		String url = "jdbc:postgresql://localhost:5432/inventario";
-		String password = "29758990";
-		String usuario = "postgres";
+		String url = "jdbc:postgresql://ec2-3-233-236-188.compute-1.amazonaws.com:5432/dd7lesmb62pvp";
+		String password = "cdd763f52d0dfdf4d60f4d361854cc7c9df0b773a6fb45a9d6adb71e033dbe69";
+		String usuario = "tpeghjiavrlgmh";
 		
 		String mail = "";
 		mail = email;
