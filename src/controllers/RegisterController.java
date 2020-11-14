@@ -45,21 +45,21 @@ public class RegisterController {
 			query.setString(1, mail);		   
 			ResultSet rs = query.executeQuery();
 			       
-			while(rs.next()) {
-			   if( mail.equals(rs.getString(3)) && xpass.equals(rs.getString(4)) ){	
+			//while(rs.next()) {
+			  // if( mail.equals(rs.getString(3)) && xpass.equals(rs.getString(4)) ){	
 				   return "{\"message\": \"Registrado Existosamente\", \"status\": 200 }";
-			   }else {
-					return"{\"message\": \"Registro Existente\", \"status\": 503 }";
-			   }
-			}
-			  rs.close();
-			  conexion.close();	              	
+			  // }else {
+					//return"{\"message\": \"Registro Existente\", \"status\": 503 }";
+			  // }
+			//}
+			  //rs.close();
+			  //conexion.close();	              	
         }catch (Exception e) {
         	System.out.println("Conexion NO Exitosa"+e.getMessage());
         	e.printStackTrace();
             return"{\"message\": \"Registro Existente\", \"status\": 503 }";
         }
-		return"{\"message\": \"Registro Existente\", \"status\": 503 }";
+		//return"{\"message\": \"Registro Existente\", \"status\": 503 }";
     }
 
 }
