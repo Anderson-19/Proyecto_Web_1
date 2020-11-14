@@ -1,6 +1,5 @@
 package controllers;
 
-import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
