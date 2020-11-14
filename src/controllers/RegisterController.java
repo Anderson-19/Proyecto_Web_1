@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.json.JSONObject;
+
 import helpers.*;
 
 public class RegisterController {
@@ -46,10 +48,16 @@ public class RegisterController {
 			query.setString(2, mail);
 			query.setString(3, xpass);
 			ResultSet rs = query.executeQuery();
+			
+			JSONObject json = new JSONObject();
+	        json.put("message", "Registrado Existosamente");
+	        json.put("status", 200);
+            	 
+	        return json.toString();
 			       
 			//while(rs.next()) {
 			  // if( mail.equals(rs.getString(3)) && xpass.equals(rs.getString(4)) ){	
-				   return "{\"message\": \"Registrado Existosamente\", \"status\": 200 }";
+				  // return "{\"message\": \"Registrado Existosamente\", \"status\": 200 }";
 			  // }else {
 					//return"{\"message\": \"Registro Existente\", \"status\": 503 }";
 			  // }
