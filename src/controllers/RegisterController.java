@@ -43,7 +43,7 @@ public class RegisterController {
 	        
 	        conexion = DriverManager.getConnection(url,usuario,password);
 			query = conexion.prepareStatement("INSERT INTO registro (name,email,password) values (?,?,?)");
-			query.setString(1, mail);		
+			query.setString(1, nombre);		
 			query.setString(2, mail);
 			query.setString(3, xpass);
 			query.executeUpdate();
