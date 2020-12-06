@@ -21,11 +21,7 @@ public class RegisterController {
     }
     
    public static String register(String name, String email, String pass) {
-		/*//Datos para la conexion
-		String url = "jdbc:postgresql://localhost:5432/inventario";
-		String password = "29758990";
-		String usuario = "postgres";*/
-	   
+	
 	   Connection conexion = null;
 	   PreparedStatement query = null;
 			  
@@ -44,8 +40,7 @@ public class RegisterController {
 		   byte[] hashPassword = md.digest();
 		   String xpass = hashPassword.toString();
 	
-	        String[] obj = {nombre, mail, xpass};     
-	        //DB.dbPrepareStatement(prop.getValue("q1"), obj);
+	        String[] obj = {nombre, mail, xpass};     	     
 	        
 	        conexion = DriverManager.getConnection(url,usuario,password);
 			query = conexion.prepareStatement("INSERT INTO registro (name,email,password) values (?,?,?)");
@@ -54,24 +49,17 @@ public class RegisterController {
 			query.setString(3, xpass);
 			query.executeUpdate();
 			       
-			//while(rs.next()) {
-			   //if( mail.equals(rs.getString(3)) && xpass.equals(rs.getString(4)) ){	
 		    JSONObject json = new JSONObject();
 		    json.put("message", "Registrado Existosamente");
 		    json.put("status", 200);
 	               	 
 		    return json.toString();
-			  // }else {
-				//return"{\"message\": \"Registro Existente\", \"status\": 503 }";
-			  // }
-			//}
-              	
+			 
         }catch (Exception e) {
         	System.out.println("Conexion NO Exitosa"+e.getMessage());
         	e.printStackTrace();
             return"{\"message\": \"Registro Existente\", \"status\": 503 }";
         }
-		//return"{\"message\": \"Registro Existente\", \"status\": 503 }";
     }
 
 }

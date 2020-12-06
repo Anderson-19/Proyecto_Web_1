@@ -48,9 +48,7 @@ public class Registro extends HttpServlet {
 		String pass = request.getParameter("pass");
         PrintWriter out = response.getWriter();
         out.println(registro.register(nombre, email, pass));
-        
-        //System.out.print("Variables pasadas: "+nombre+" --||-- " +email+" --||--  "+ pass);
-                
+ 
 	}
 
 }

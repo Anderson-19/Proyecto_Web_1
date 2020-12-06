@@ -18,10 +18,6 @@ import controllers.RegisterController;
 public class LoginVerificacion {
 		
 	public static boolean authCheck(String email, String pass) {
-		/*//Datos para la conexion
-		String url = "jdbc:postgresql://localhost:5432/inventario";
-		String password = "29758990";
-		String usuario = "postgres";*/
 		 
 		 Connection conexion = null;
 		 PreparedStatement query = null;

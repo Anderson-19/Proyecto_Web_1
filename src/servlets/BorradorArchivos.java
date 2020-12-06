@@ -47,9 +47,7 @@ public class BorradorArchivos extends HttpServlet {
 		
 		String file = request.getParameter("file");
 		String email = request.getParameter("email");
-		System.out.println(file+"-----"+email);
-
-		
+	
 		if(!file.equals("") && !email.equals("")) {
 			out.println(archivos.borrarArchivos(email,file));
 		}else {
