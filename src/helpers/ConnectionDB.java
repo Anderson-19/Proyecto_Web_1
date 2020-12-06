@@ -33,9 +33,9 @@ public class ConnectionDB {
 	
 	public Connection conexion() {
 		try {
-			Class.forName(driver);
+			//Class.forName(driver);
 			connect = DriverManager.getConnection(url, usuario,pass);
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			return null;
 		}
 		return  connect ;	}
