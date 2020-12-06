@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,10 +24,14 @@ public class RegisterController {
 	   Connection conexion = null;
 	   PreparedStatement query = null;
 			  
-		//Datos para la conexion
-		String url = "jdbc:postgresql://ec2-3-233-236-188.compute-1.amazonaws.com:5432/dd7lesmb62pvp";
-		String password = "cdd763f52d0dfdf4d60f4d361854cc7c9df0b773a6fb45a9d6adb71e033dbe69";
-		String usuario = "tpeghjiavrlgmh";
+	    //Datos para la conexion
+	 	String url = "jdbc:postgresql://ec2-3-233-236-188.compute-1.amazonaws.com:5432/dd7lesmb62pvp";
+	 	String password = "cdd763f52d0dfdf4d60f4d361854cc7c9df0b773a6fb45a9d6adb71e033dbe69";
+	 	String usuario = "tpeghjiavrlgmh";
+	 	/*//Datos para la conexion
+		String url = "jdbc:postgresql://localhost:5432/inventario";
+		String password = "29758990";
+		String usuario = "postgres";*/
 	   
 		String mail = "", nombre = "";
 		mail = email;
@@ -43,26 +48,23 @@ public class RegisterController {
 	        
 	        conexion = DriverManager.getConnection(url,usuario,password);
 			query = conexion.prepareStatement("INSERT INTO registro (name,email,password) values (?,?,?)");
-			query.setString(1, nombre);		
+			query.setString(1,nombre);		
 			query.setString(2, mail);
 			query.setString(3, xpass);
 			query.executeUpdate();
-			
-			JSONObject json = new JSONObject();
-	        json.put("message", "Registrado Existosamente");
-	        json.put("status", 200);
-            	 
-	        return json.toString();
 			       
 			//while(rs.next()) {
-			  // if( mail.equals(rs.getString(3)) && xpass.equals(rs.getString(4)) ){	
-				  // return "{\"message\": \"Registrado Existosamente\", \"status\": 200 }";
+			   //if( mail.equals(rs.getString(3)) && xpass.equals(rs.getString(4)) ){	
+		    JSONObject json = new JSONObject();
+		    json.put("message", "Registrado Existosamente");
+		    json.put("status", 200);
+	               	 
+		    return json.toString();
 			  // }else {
-					//return"{\"message\": \"Registro Existente\", \"status\": 503 }";
+				//return"{\"message\": \"Registro Existente\", \"status\": 503 }";
 			  // }
 			//}
-			  //rs.close();
-			  //conexion.close();	              	
+              	
         }catch (Exception e) {
         	System.out.println("Conexion NO Exitosa"+e.getMessage());
         	e.printStackTrace();
